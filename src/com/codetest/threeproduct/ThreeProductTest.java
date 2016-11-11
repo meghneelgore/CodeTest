@@ -7,11 +7,17 @@ import org.junit.Test;
 
 public class ThreeProductTest {
 
+	/**
+	 * Tests null list. Expects IllegalArgumentException to be thrown.
+	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testNull() {
 		new ThreeProduct(null);
 	}
 	
+	/**
+	 * Tests that calling with a list having less than 3 elements throws an IllegalArgumentException
+	 */
 	@Test(expected=IllegalArgumentException.class) 
 	public void testLessThanThreeNumbers() {
 		List<Integer> list = new ArrayList<>();
@@ -19,6 +25,9 @@ public class ThreeProductTest {
 		new ThreeProduct(list);
 	}
 	
+	/**
+	 * Tests for all positive numbers
+	 */
 	@Test
 	public void testAllPositive() {
 		List<Integer> list = new ArrayList<>();
@@ -30,6 +39,9 @@ public class ThreeProductTest {
 		Assert.assertEquals("Product not correct", 18, p.findProduct());
 	}
 
+	/**
+	 * Tests for all negative numbers
+	 */
 	@Test 
 	public void testAllNegative() {
 		List<Integer> list = new ArrayList<>();
@@ -41,6 +53,9 @@ public class ThreeProductTest {
 		Assert.assertEquals("Product not correct", -6, p.findProduct());
 	}
 	
+	/**
+	 * Tests with positive and negative numbers
+	 */
 	@Test
 	public void testMixed() {
 		List<Integer> list = new ArrayList<>();
@@ -52,6 +67,9 @@ public class ThreeProductTest {
 		Assert.assertEquals("Product not correct", 180000, p.findProduct());
 	}
 	
+	/**
+	 * Tests with positive and negative numbers with a larger list of numbers
+	 */
 	@Test
 	public void testMixed2() {
 		List<Integer> list = new ArrayList<>();
@@ -82,6 +100,9 @@ public class ThreeProductTest {
 		Assert.assertEquals("Product not correct", 1239255600, p.findProduct());
 	}
 	
+	/**
+	 * Tests for throwing of IllegalArgumentException when the product can't fit into an int
+	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testOverflow1() {
 		List<Integer> list = new ArrayList<>();
@@ -93,6 +114,9 @@ public class ThreeProductTest {
 		p.findProduct();
 	}
 	
+	/**
+	 * Tests for throwing of IllegalArgumentException when the product can't fit into an int
+	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testOverflow2() {
 		List<Integer> list = new ArrayList<>();

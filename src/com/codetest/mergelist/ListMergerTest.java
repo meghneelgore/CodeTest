@@ -6,12 +6,17 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class ListMergerTest {
-	
+	/**
+	 * Tests nullness of the lists. Expects IllegalArgumentException to be thrown
+	 */
 	@Test(expected=java.lang.IllegalArgumentException.class)
 	public void testNulls() {		
 		new ListMerger(null, null);	
 	}
 
+	/**
+	 * Tests emptiness of the lists. Expects returned list to have size 0.
+	 */
 	@Test
 	public void testEmpty() {
 		List<Integer> l1 = new ArrayList<>();
@@ -22,6 +27,9 @@ public class ListMergerTest {
 		Assert.assertEquals("Merged list not empty for empty inputs", 0, merged.size());
 	}
 	
+	/**
+	 * Tests if one of the lists is empty.
+	 */
 	@Test
 	public void testOneEmpty() {
 		List<Integer> l1 = new ArrayList<>();
@@ -36,6 +44,9 @@ public class ListMergerTest {
 		Assert.assertEquals("Merged list not same as non-empty list", l1, merged);
 	}
 	
+	/**
+	 * Tests both lists as non-empty sorted lists
+	 */
 	@Test
 	public void testBothNonEmpty() {
 		List<Integer> l1 = new ArrayList<>();
@@ -59,6 +70,9 @@ public class ListMergerTest {
 		Assert.assertEquals("Merged list not same as merger of two lists", l3, merged);
 	}
 	
+	/**
+	 * Tests all lists having negative numbers
+	 */
 	@Test
 	public void testAllNegative() {
 		List<Integer> l1 = new ArrayList<>();
@@ -82,6 +96,9 @@ public class ListMergerTest {
 		Assert.assertEquals("Merged list not same as merger of two lists", l3, merged);
 	}
 	
+	/**
+	 * Tests all numbers in all the lists being equal
+	 */
 	@Test
 	public void testAllEqual() {
 		List<Integer> l1 = new ArrayList<>();
@@ -105,6 +122,9 @@ public class ListMergerTest {
 		Assert.assertEquals("Merged list not same as merger of two lists", l3, merged);
 	}
 	
+	/**
+	 * Tests calling of merge() twice since we have optimized it for multiple calls.
+	 */
 	@Test
 	public void testMergeTwice() {
 		List<Integer> l1 = new ArrayList<>();
