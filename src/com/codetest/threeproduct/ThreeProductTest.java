@@ -68,6 +68,21 @@ public class ThreeProductTest {
 	}
 	
 	/**
+	 * Tests with positive and negative numbers
+	 */
+	@Test
+	public void testMixedWithReccuringCall() {
+		List<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(-200);
+		list.add(-300);
+		list.add(3);
+		ThreeProduct p = new ThreeProduct(list);
+		Assert.assertEquals("Product not correct", 180000, p.findProduct());
+		Assert.assertEquals("Product not correct", 180000, p.findProduct());
+	}
+	
+	/**
 	 * Tests with positive and negative numbers with a larger list of numbers
 	 */
 	@Test
@@ -127,4 +142,6 @@ public class ThreeProductTest {
 		ThreeProduct p = new ThreeProduct(list);
 		p.findProduct();
 	}
+	
+	
 }

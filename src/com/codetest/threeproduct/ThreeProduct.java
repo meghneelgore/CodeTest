@@ -11,7 +11,8 @@ import com.google.common.collect.ImmutableList;
  */
 public class ThreeProduct {
 	private final List<Integer> list;
-
+	private Integer product;
+	
 	/**
 	 * Constructor. Creates an object with a defensively copied list.
 	 * 
@@ -36,6 +37,7 @@ public class ThreeProduct {
 	 * @return Greatest product of any 3 numbers from the list.
 	 */
 	public int findProduct() {
+		if(product != null) return product.intValue();
 		//The max product can only be a product of the 3 max or the 1st max and 2 min numbers
 		int max1 = Integer.MIN_VALUE;
 		int max2 = Integer.MIN_VALUE;
@@ -86,6 +88,8 @@ public class ThreeProduct {
 		if(prod1 > Integer.MAX_VALUE || prod1 < Integer.MIN_VALUE)  throw new IllegalArgumentException("Product cannot fit in 32 bit signed integer");
 		long prod2 = (long)max1 * (long)max2 * (long)max3;
 		if(prod2 > Integer.MAX_VALUE || prod2 < Integer.MIN_VALUE) throw new IllegalArgumentException("Product cannot fit in 32 bit signed integer");
-		return (int)Math.max(prod1, prod2);
+		product = (int)Math.max(prod1, prod2);
+		return product.intValue();
+		
 	}
 }
