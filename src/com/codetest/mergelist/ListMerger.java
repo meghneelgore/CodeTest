@@ -48,7 +48,6 @@ public class ListMerger {
 		if(list2.size() == 0) return list1;
 		
 		returnList = new ArrayList<>();
-
 		while(true) {
 			//If one list is empty, append the other list and return the merged list
 			if(list1.size() == 0) {

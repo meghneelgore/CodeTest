@@ -52,6 +52,36 @@ public class ThreeProductTest {
 		Assert.assertEquals("Product not correct", 180000, p.findProduct());
 	}
 	
+	@Test
+	public void testMixed2() {
+		List<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(-200);
+		list.add(-300);
+		list.add(-3);
+		list.add(600);
+		list.add(-20);
+		list.add(-34);
+		list.add(133);
+		list.add(353);
+		list.add(33);
+		list.add(31);
+		list.add(73);
+		list.add(58);
+		list.add(31);
+		list.add(93);
+		list.add(100);
+		list.add(101);
+		list.add(-100);
+		list.add(156);
+		list.add(3);
+		list.add(4631);
+		list.add(446);
+		
+		ThreeProduct p = new ThreeProduct(list);
+		Assert.assertEquals("Product not correct", 1239255600, p.findProduct());
+	}
+	
 	@Test(expected=IllegalArgumentException.class)
 	public void testOverflow1() {
 		List<Integer> list = new ArrayList<>();

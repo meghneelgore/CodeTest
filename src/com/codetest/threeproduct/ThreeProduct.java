@@ -44,11 +44,12 @@ public class ThreeProduct {
 		int min1 = Integer.MAX_VALUE;
 		int min2 = Integer.MAX_VALUE;
 
+		//Start of code that's not very readable. It basically finds the max, second-max, third-max, min and second-min
+		//values in the list.
 		for(Integer i: list) {
 			if(max1 < i) {
 				int intermediateMax1 = max1;
 				max1 = i;
-
 				if(max2 < intermediateMax1) {
 					int intermediateMax2 = max2;
 					max2 = intermediateMax1;
@@ -64,7 +65,6 @@ public class ThreeProduct {
 				if(max3 < intermediateMax2) {
 					max3 = intermediateMax2;
 				}
-
 			} else if(max3 < i) {
 				max3 = i;
 			}
@@ -78,7 +78,10 @@ public class ThreeProduct {
 				min2 = i;
 			}
 		}
+		//End of unreadable code
 		
+		
+		//If the product overflows a 32-bit signed int, throw IllegalArgumentException
 		long prod1 = (long)min1 * (long)min2 * (long)max1;
 		if(prod1 > Integer.MAX_VALUE || prod1 < Integer.MIN_VALUE)  throw new IllegalArgumentException("Product cannot fit in 32 bit signed integer");
 		long prod2 = (long)max1 * (long)max2 * (long)max3;
