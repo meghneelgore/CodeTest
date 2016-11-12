@@ -39,7 +39,7 @@ public class ListMerger {
 	 * 
 	 * @return Merged list with duplicates. The returned list will be of size 0 if both the lists are of size 0.
 	 */
-	public List<Integer> merge() {
+	public synchronized List<Integer> merge() {
 		//If merge was done before, return without any processing
 		if(returnList != null) return returnList;
 
@@ -69,7 +69,5 @@ public class ListMerger {
 				returnList.add(list2.remove(0));
 			}
 		}
-		
-
 	}
 }

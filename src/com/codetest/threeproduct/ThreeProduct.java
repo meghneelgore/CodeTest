@@ -36,7 +36,7 @@ public class ThreeProduct {
 
 	 * @return Greatest product of any 3 numbers from the list.
 	 */
-	public int findProduct() {
+	public synchronized int findProduct() {
 		if(product != null) return product.intValue();
 		//The max product can only be a product of the 3 max or the 1st max and 2 min numbers
 		int max1 = Integer.MIN_VALUE;
